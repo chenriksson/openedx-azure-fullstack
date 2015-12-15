@@ -2,6 +2,6 @@
   "itemDisplayName": "Create an Open edX fullstack instance",
   "description": "This template creates an Ubuntu VM running Open edX fullstack.",
   "summary": "Deploy Open edX fullstack to Azure.",
-  "githubUsername": "tkeemon",
+  "githubUsername": "chenriksson",
   "dateUpdated": "2015-09-28"
 }

@@ -87,7 +87,7 @@ EXTRA_VARS="-e edx_platform_version=$OPENEDX_RELEASE \
   -e forum_version=$OPENEDX_RELEASE \
   -e xqueue_version=$OPENEDX_RELEASE \
   -e configuration_version=appsembler/azureDeploy \
-  -e edx_ansible_source_repo=https://github.com/appsembler/configuration \
+  -e edx_ansible_source_repo=https://github.com/chenriksson/configuration \
 "
 
 ###################################################
@@ -95,13 +95,13 @@ EXTRA_VARS="-e edx_platform_version=$OPENEDX_RELEASE \
 ###################################################
 
 cd /tmp
-time git clone https://github.com/appsembler/configuration.git
+time git clone https://github.com/chenriksson/configuration.git
 cd configuration
 time git checkout appsembler/azureDeploy
 time sudo pip install -r requirements.txt
 cd playbooks
 
-curl https://raw.githubusercontent.com/tkeemon/openedx-azure-fullstack/master/server-vars.yml > /tmp/server-vars.yml
+curl https://raw.githubusercontent.com/chenriksson/openedx-azure-fullstack/master/server-vars.yml > /tmp/server-vars.yml
 
 sudo ansible-playbook -i localhost, -c local vagrant-fullstack.yml -e@/tmp/server-vars.yml $EXTRA_VARS
 
