@@ -75,7 +75,7 @@ ensureAzureNetwork
 
 time sudo apt-get -y update && sudo apt-get -y upgrade
 time sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev libfreetype6-dev python-pip python-apt python-dev libxmlsec1-dev swig
-time sudo pip install --upgrade pip
+time sudo pip install pip==7.1.2
 time sudo pip install --upgrade virtualenv
 
 ###################################################
