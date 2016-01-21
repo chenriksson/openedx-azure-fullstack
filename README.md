@@ -6,10 +6,6 @@ You can learn more about Open edX and fullstack here:
 - https://open.edx.org
 - https://github.com/edx/edx-platform
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fchenriksson%2Fopenedx-azure-fullstack%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
 This template will complete quickly, but the full Open edX install usually takes > 1 hour. To follow along with the progress, ssh into the VM and `tail -f /var/log/azure/openedx-fullstack-install.log`
 
 # Getting started with Open edX fullstack

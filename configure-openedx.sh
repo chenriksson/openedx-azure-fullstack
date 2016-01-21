@@ -101,9 +101,28 @@ time git checkout appsembler/azureDeploy
 time sudo pip install -r requirements.txt
 cd playbooks
 
-curl https://raw.githubusercontent.com/chenriksson/openedx-azure-fullstack/master/server-vars.yml > /tmp/server-vars.yml
+# wait for scp of internal resources, up to 5 minutes
+retries=10
+until test $((retries--)) -le 0 -o -f "/tmp/pre-install.sh"; do sleep 30; done
+if [ ! -f /tmp/pre-install.sh ]; then
+  echo "Could not find pre-installation script at '/tmp/pre-install.sh'."
+  exit 1
+fi
 
-sudo ansible-playbook -i localhost, -c local vagrant-fullstack.yml -e@/tmp/server-vars.yml $EXTRA_VARS
+sudo chmod 744 /tmp/pre-install.sh
+sudo /tmp/pre-install.sh
+
+if [ ! -f /tmp/transfer/server-vars.yml ]; then
+  echo "Could not find Open edX configuration at '/tmp/transfer/server-vars.yml'."
+  exit 1
+fi
+
+sudo ansible-playbook -i localhost, -c local vagrant-fullstack.yml -e@/tmp/transfer/server-vars.yml $EXTRA_VARS
+
+if [ -f /tmp/transfer/post-install.sh ]; then
+  sudo chmod 744 /tmp/transfer/post-install.sh
+  sudo /tmp/transfer/post-install.sh
+fi
 
 date
 echo "Completed Open edX fullstack provision on pid $$"
