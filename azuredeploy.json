@@ -163,6 +163,20 @@
             }
           },
           {
+            "name": "LMS-SSL",
+            "properties": {
+              "description": "Allow connection to Open edX LMS (SSL)",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 202,
+              "direction": "Inbound"
+            }
+          },
+          {
             "name": "CMS",
             "properties": {
               "description": "Allow connection to Open edX CMS",
