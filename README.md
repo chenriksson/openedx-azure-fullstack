@@ -9,9 +9,11 @@
 
 This template deploys the Open edX full stack on Ubuntu. A default server-vars.yml is saved to */edx/app/edx_ansible*.
 
-Connect to the virtual machine with SSH: `ssh {adminUsername}@{dnsNameForPublicIP}.cloudapp.azure.com`. Installation log can be found under */var/log/azure*.
+Connect to the virtual machine with SSH: `ssh {adminUsername}@{dnsNameForPublicIP}.{region}.cloudapp.azure.com`. Installation log can be found under */var/log/azure*.
 
 You can learn more about Open edX and fullstack here:
 - [Open edX](https://open.edx.org)
 - [Running FullStack](https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Fullstack)
 - [Source Code](https://github.com/edx/edx-platform)
+
+*Note that this template uses a different license than the [Open edX](https://github.com/edx/edx-platform/blob/master/LICENSE) platform.*
